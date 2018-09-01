@@ -1,0 +1,41 @@
+protected void service(HttpServletRequest req,HttpServletResponse res)throws ServletException, IOException{
+		// 1.Request Parameter
+		String un=req.getParameter("uname");
+		String pw=req.getParameter("password");
+		// 2 display request parameter
+		PrintWriter out=res.getWriter();
+		out.println("<h1> Username:"+un);
+		out.println("<br/>Password"+pw);
+		out.println("</hr>");
+		out.println("Request header");
+		//3. Request Header
+		Enumeration e=req.getHeaderNames();
+		while(e.hasMoreElements()){
+			String hn=e.nextElement().toString();
+			String hv=req.getHeader(hn);
+			out.println("<br/>"+hn+":"+hv);
+			}
+		    out.println("<hr/>");
+		    out.println("Locate Info");
+
+	//4.locales Support by Browers
+	    
+	    out.println("<br/>req.getLocale():"+req.getLocale());
+	    out.println("<hr/>");
+	    out.println("other info");
+	    //5.other information from Request
+	    out.println("br/>METHOD :" +req.getMethod());
+	    out.println("br/> Request URL:"+req.getRequestURL());
+	    out.println("br/>protocol: "+req.getProtocol());
+	    out.println("br/>Content Len: "+req.getContentLength());
+	    out.println("br/>Content Type: "+req.getContentType());	
+	    
+	    
+	    
+	    out.println("<br/>Req.getcontentpsth():"+req.getContextPath());
+	    		
+	    		
+	    	
+	    
+
+}}
